@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Objetos</title>
+		<script type="text/javascript">
+		/*var perro ={
+			agilidad : 50,
+			fuerza: 100,
+			limpieza:false,
+			longevidad: 14,
+			amor: true,
+			voz: function(){
+				alert("guau");
+			}
+		};
+		perro.voz();*/
+
+		//variable global
+		var nombre = "Frisco";
+		//clase: objeto maestro, del que se derivan otros objetos
+		//Clase: Definicion del objeto.
+		var Mascota = function(n,v){
+			this.nombre = n;
+			this.voz = v;
+		}
+		Mascota.prototype.hablar = function() {
+			// body...
+			alert(this.nombre + " dice: " + this. voz);
+		};
+		// perro = objeto de la clase mascota.
+		var perro = new Mascota("roco","guau!");
+		var gato = new Mascota("misifu", "los humanos son mis esclavos");
+
+		// alert("El perro es " + perro.nombre);
+		// alert("El gato es " + gato.nombre);
+		perro.hablar();
+		gato.hablar();
+		</script>
+	</head>
+	<body>
+	<h1>Perros y Gatos</h1>
+	</body>
+</html>
