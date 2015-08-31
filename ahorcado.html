@@ -1,0 +1,45 @@
+<!--
+    Juego del ahorcado:
+    1. Dibujar el poste.
+    2. Determinar la palabra.
+    3. Pasos para ahorcar:
+        Cabeza
+        Torso
+        Brazos
+        Pies
+        Ojos Muertos
+    4. Elegir las letras
+        Si la letra existe:
+            Ponerlo en la lista.
+        Si no:
+            Agrego un trazo al ahorcado.
+        Si ya dibuje al ahorcado completo.
+            Perdí
+        Si adivine la palabra
+            Gané
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ahorcado</title>
+		<script type="text/javascript" src="ahorcado.js"></script>
+	</head>
+	<body>
+		<h1>Adivina letra a letra</h1>
+		<canvas id="c"></canvas>
+		<p>
+			elige una letra:
+			<input type="text" id="letra" />
+			<input type="button" id="boton" value="Boom!!" />
+
+
+		</p>
+		<h2 id="pista">_ _ _ _ _ _ _ _ _</h2>
+
+
+		<script type="text/javascript">
+		iniciar();
+		</script>
+	</body>
+</html>
