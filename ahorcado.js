@@ -1,5 +1,5 @@
-var palabra ="tamarindo";
-var hombre;
+var palabra ="madera";
+var hombre,l,espacio;
 
 
 //declaracion de la clase ahorcado
@@ -130,14 +130,75 @@ function iniciar(){
 	//creamos una variable para el contexto del canvas
 	var contexto = canvas.getContext("2d");
 	hombre = new Ahorcado(contexto);
-	hombre.trazar();
-	hombre.trazar();
-	hombre.trazar();
-	hombre.trazar();
-	hombre.trazar();
+	palabra = palabra.toUpperCase();
+	//declaro un array con n espacio 
+	//de acuerdo al largo de la palabra
+	espacio = new Array(palabra.length);
+	// hombre.trazar();
+	// hombre.trazar();
+	// hombre.trazar();
+	// hombre.trazar();
+	// hombre.trazar();
 
 
+	 l = document.getElementById("letra");
+	var b = document.getElementById("boton");
 
 
+	//evento click
+	//agregamos una funcion que se dispare al dar click al boton
+	b.addEventListener("click",agregarLetra);
+	mostrarPista(espacio);
 
+}
+
+function agregarLetra(){
+	//alert(l.value);
+	var letra = l.value;
+	
+	//alert(letra);
+	//hombre.trazar();
+	mostrarPalabra(palabra,hombre,letra);
+
+}
+
+function mostrarPalabra(palabra,hombre,letra){
+	var econtrado = false;
+	var p;
+	letra = letra.toUpperCase();
+	for(p in palabra){
+		if (letra == palabra[p]) {
+			espacio[p]= letra;
+			econtrado = true;
+		};
+	}
+	//si no lo encontre
+	mostrarPista(espacio);
+	if (!econtrado) {
+		hombre.trazar();
+	};
+
+	if (!hombre.vivo) {
+		//mostrar la palabra entera
+	};
+	//var pista = document.getElementById("pista");
+	//
+
+}
+
+function mostrarPista(espacio){
+	var pista = document.getElementById("pista");
+	var texto = "";
+	var i;
+	var largo= espacio.length;
+
+	for (i = 0; i < largo; i++) {
+		if (espacio[i]!==undefined) {
+			texto += espacio[i] + " " 
+		}
+		else{
+			texto+= "_ "
+		};
+	};
+	pista.innerText = texto;
 }
